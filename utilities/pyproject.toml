@@ -1,21 +1,16 @@
 [tool.poetry]
-name = "psh_probability"
+name = "utilities"
 version = "0.1.0"
 description = ""
 authors = ["Mikolaj Najda <mikolaj.najda@maastrichtuniversity.nl>"]
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = ">=3.10,<3.13"
 scikit-learn = "^1.4.2"
 pandas = "^2.2.2"
-statsmodels = "^0.14.2"
 xgboost = "^2.0.3"
 shap = "^0.45.0"
-fastparquet = "^2024.2.0"
-pyyaml = "^6.0.1"
-utilities = { path = "../utilities/" }
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.4"
