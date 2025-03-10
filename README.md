@@ -1,4 +1,4 @@
-## Acknowledgement
+## Acknowledgements
 
 Authors: Mikołaj Najda (mikolaj.najda@maastrichtuniversity.nl) and Cyprian Mataczyński (cyprian.mataczynski@pwr.edu.pl)
 Project Investigator: Agnieszka Uryga (agnieszka.uryga@pwr.edu.pl)
