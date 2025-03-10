@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "tamasfe.even-better-toml",
+        "eamodio.gitlens",
+        "skellock.just",
+        "ms-python.vscode-pylance"
+    ]
+}
