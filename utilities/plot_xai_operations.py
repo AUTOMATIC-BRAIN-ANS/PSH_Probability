@@ -38,3 +38,33 @@ def save_and_get_feature_importance_for_xgboost(model, save_path, iteration):
     plt.close()
 
     return feature_importance
+
+
+def save_and_get_feature_importance_for_logistic_regression(
+    model, X_train, save_path, iteration
+):
+    importance = np.abs(model.coef_[0])
+    feature_importance = (
+        pd.Series(importance, index=X_train.columns)
+        .sort_values(ascending=False)
+        .head(10)
+    )
+
+    plt.figure(figsize=(10, 8))
+    feature_importance.plot(kind="bar")
+    plt.ylabel("Absolute Coefficient Value")
+    plt.xticks(rotation=90)
+    plt.tight_layout()
+    plt.savefig(
+        f"{save_path}feature_importance_{iteration}.svg",
+        format="svg",
+        bbox_inches="tight",
+    )
+    plt.savefig(
+        f"{save_path}feature_importance_{iteration}.pdf",
+        format="pdf",
+        bbox_inches="tight",
+    )
+    plt.close()
+
+    return feature_importance

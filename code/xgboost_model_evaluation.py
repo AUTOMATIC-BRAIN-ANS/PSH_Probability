@@ -9,6 +9,7 @@ import shap
 import xgboost as xgb
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
+
 from utilities.df_operations import load_dataset, setup_directories
 from utilities.model_operations import calculate_metrics, save_roc_auc_figure
 from utilities.plot_xai_operations import (
@@ -80,7 +81,6 @@ def evaluate_with_kfold(metadata, label, base_path, file_path, n_splits=5):
 
     all_shap_importances = {}
     all_xgb_importances = {}
-    all_perm_importances = {}
     all_fold_results = {}
     all_param_comb_list = {}
 
@@ -93,8 +93,6 @@ def evaluate_with_kfold(metadata, label, base_path, file_path, n_splits=5):
         #     json.dump(all_shap_importances, f, indent=4)
         # with open(f'{model_dir}/xgb_importances.json', 'w') as f:
         #     json.dump(all_xgb_importances, f, indent=4)
-        # with open(f'{model_dir}/perm_importances.json', 'w') as f:
-        #     json.dump(all_perm_importances, f, indent=4)
         # with open(f'{model_dir}/aggregate_results.json', 'w') as f:
         #     json.dump(aggregate_results, f, indent=4)
         pass
@@ -112,7 +110,6 @@ def evaluate_with_kfold(metadata, label, base_path, file_path, n_splits=5):
         metrics_list = []
         dict_shap_importances = {}
         dict_xgb_importances = {}
-        dict_perm_importances = {}
         fold_results = {}
 
         fold_counter = 0
@@ -170,7 +167,6 @@ def evaluate_with_kfold(metadata, label, base_path, file_path, n_splits=5):
         all_param_comb_list[iteration_counter] = param_dict
         all_shap_importances[iteration_counter] = dict_shap_importances
         all_xgb_importances[iteration_counter] = dict_xgb_importances
-        all_perm_importances[iteration_counter] = dict_perm_importances
 
         iteration_counter += 1
         save_progress()
